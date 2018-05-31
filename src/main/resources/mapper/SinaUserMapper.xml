@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youliang.service.dao.SinaUserDao">
+
+    <insert id="insert" parameterType="com.youliang.service.bean.SinaSpiderUser">
+        insert into tb_spider_sina_user(sid, desc1, desc2, scheme, screen_name, profile_image_url, profile_url,
+        followers_count, follow_count, cover_image_phone, update_date, create_date)
+        values (#{sid}, #{desc1}, #{desc2}, #{scheme}, #{screen_name}, #{profile_image_url}, #{profile_url},
+        #{followers_count}, #{follow_count}, #{cover_image_phone}, now(), now())
+    </insert>
+
+    <select id="isExist" parameterType="long" resultType="int">
+        select count(1) from tb_spider_sina_user where sid = #{sid}
+    </select>
+</mapper>
