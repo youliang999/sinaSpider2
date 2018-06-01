@@ -43,6 +43,7 @@ public class ProxyTestTask implements Runnable {
             get.releaseConnection();
            // log.info(proxy.toString() + "---------" + page.toString());
             log.info("----------代理可用--------请求耗时:" + (System.currentTimeMillis() - start) + "ms");
+            log.info("add a proxy: {}", proxy);
             ProxyPool.proxyQueue.add(proxy);
         } catch (IOException e) {
             log.debug("IOException:", e);
